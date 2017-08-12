@@ -2,75 +2,46 @@ const figures = require('figures');
 
 const tags = {
 
-  pre: {
-    display: 'block',
-    preformatted: true
-  },
-
   br: {
-    display: 'inline',
-    open: '%BR%'
-  },
-
-  div: {
-    display: 'block'
-  },
-
-  ul: {
-    display: 'block'
+    open: '\n',
+    close: false
   },
 
   li: {
-    display: 'block',
     bullet: '*'
   },
 
-  span: {
-    display: 'inline'
-  },
-
   em: {
-    display: 'inline',
     style: 'italic'
   },
 
   strong: {
-    display: 'inline',
     style: 'bold'
   },
 
-  message: {
-    display: 'block'
-  },
-
   success: {
-    display: 'block',
     bullet: figures.tick,
     color: 'green'
   },
 
   warning: {
-    display: 'block',
     bullet: figures.warning,
     color: 'yellow'
   },
 
   error: {
-    display: 'block',
     bullet: figures.cross,
     color: 'red'
   },
 
-  details: {
-    display: 'block',
-    color: 'dim',
-    preformatted: true
+  debug: {
+    color: 'dim'
   },
 
-  section: {
-    display: 'block',
-    open: '%BR%',
-    close: '%BR%'
+  hr: {
+    color: 'dim',
+    open: '---',
+    close: false
   }
 
 };

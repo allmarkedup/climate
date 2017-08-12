@@ -42,20 +42,15 @@ const tagNames = [
   'bgMagentaBright',
   'bgCyanBright',
   'bgWhiteBright',
-  'pre',
   'br',
-  'div',
-  'ul',
+  'hr',
   'li',
-  'span',
   'em',
   'strong',
-  'message',
   'success',
   'warning',
   'error',
-  'details',
-  'section'
+  'debug'
 ];
 
 describe('config', function () {

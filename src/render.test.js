@@ -78,18 +78,9 @@ describe('renderer', function () {
       expect(result).to.equal(renderWithChalk('<baz>foo</baz>'));
     });
 
-    it('strips whitespace correctly inside inline tags', function () {
+    it('strips leading and following new lines', function () {
       const expected = renderWithChalk('foo');
-      expect(render(`<span> foo </span>`)).to.equal(expected);
-      expect(render(`<span>\nfoo\n</span>`)).to.equal(expected);
-      expect(render(`<span> foo <span>bar</span></span>`)).to.equal(renderWithChalk('foo bar'));
-      expect(render(`<span> foo <span> bar </span> baz </span>`)).to.equal(renderWithChalk('foo bar baz'));
-    });
-
-    it('strips whitespace correctly inside block tags', function () {
-      const expected = renderWithChalk('foo');
-      expect(render(`<div> foo </div>`)).to.equal(expected);
-      expect(render(`<div>\nfoo\n</div>`)).to.equal(expected);
+      expect(render(`\n\nfoo\n\n`)).to.equal(expected);
     });
 
     it('allows custom tags to be supplied as an option', function () {
@@ -103,14 +94,4 @@ describe('renderer', function () {
       expect(result).to.equal(renderWithChalk(`foo${chalk.red('baz')}`));
     });
   });
-
-  // describe('.collapseWhitespace()', function () {
-  //   it('returns an array of tokens', function () {
-  //     const tokens = tokenize('<red></red>');
-  //   });
-  //   it('does not collapse whitespace within a preformatted context', function () {
-  //     const tokens = tokenize('<pre>\n\nfoo     bar\n\n     baz</pre>');
-  //     expect;
-  //   });
-  // });
 });

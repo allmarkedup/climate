@@ -42,28 +42,6 @@ describe('Tag', function () {
     });
   });
 
-  describe('.display', function () {
-    it('returns the display value set in the config', function () {
-      const tag = new Tag('bar', {display: 'block'});
-      expect(tag.display).to.equal('block');
-    });
-    it('defaults to `inline` if not set in config', function () {
-      const tag = new Tag('bar');
-      expect(tag.display).to.equal('inline');
-    });
-  });
-
-  describe('.preformatted', function () {
-    it('returns the preformatted value set in the config', function () {
-      const tag = new Tag('bar', {preformatted: true});
-      expect(tag.preformatted).to.equal(true);
-    });
-    it('defaults to false if not set in config', function () {
-      const tag = new Tag('bar');
-      expect(tag.preformatted).to.equal(false);
-    });
-  });
-
   describe('.config', function () {
     it('returns the configuration object', function () {
       const tag = new Tag('foo');

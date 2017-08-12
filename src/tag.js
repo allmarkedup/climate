@@ -9,17 +9,9 @@ class Tag {
     _config.set(this, config);
   }
 
-  get display() {
-    return this.config.display || 'inline';
-  }
-
-  get preformatted() {
-    return Boolean(this.config.preformatted);
-  }
-
   open(stack) {
     const config = this.config;
-    let open = config.open || '';
+    let open = '';
 
     if (config.color) {
       open += `{${config.color} `;
@@ -37,11 +29,25 @@ class Tag {
       open += `${config.bullet} `;
     }
 
+    open += config.open || '';
+
+    if (config.close === false) {
+      for (const prop of ['color', 'style', 'bgColor']) {
+        if (this.config[prop]) {
+          open += `}`;
+        }
+      }
+    }
+
     return open;
   }
 
   close() {
-    let close = this.config.close || '';
+    let close = this.config.close;
+    if (close === false) {
+      return;
+    }
+    close = close || '';
     for (const prop of ['color', 'style', 'bgColor']) {
       if (this.config[prop]) {
         close += `}`;

@@ -5,7 +5,7 @@ const {Token, TagToken} = require('./token');
 describe('Token', function () {
   it('exports a static set of unique token types', function () {
     const used = [];
-    for (const type of ['INLINE_OPEN', 'INLINE_CLOSE', 'BLOCK_OPEN', 'BLOCK_CLOSE', 'TEXT']) {
+    for (const type of ['OPEN', 'CLOSE', 'TEXT']) {
       expect(Token[type]).to.be.a('string');
       expect(used.includes(type)).to.equal(false);
       used.push(type);
@@ -28,16 +28,5 @@ describe('TagToken', function () {
     it('throws an error if the position is not valid', function () {
       expect(() => new TagToken(new Tag('foo'), 'bar')).to.throw('[position-invalid]');
     });
-    it('throws an error if the tag display is invalid', function () {
-      expect(() => new TagToken(new Tag('foo', {
-        display: 'foo'
-      }), 'open')).to.throw('[display-invalid]');
-    });
   });
-
-  // describe('.content()', function() {
-  //   it('returns the result of the appropriate open or close tag method', () => {
-  //
-  //   });
-  // });
 });
