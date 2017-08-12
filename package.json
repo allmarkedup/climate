@@ -1,6 +1,6 @@
 {
   "name": "@allmarkedup/climate",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Generate styled CLI output using a markup-style syntax.",
   "homepage": "https://github.com/allmarkedup/climate",
   "repository": "https://github.com/allmarkedup/climate",
